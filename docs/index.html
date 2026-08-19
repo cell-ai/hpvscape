@@ -89,13 +89,18 @@
     margin-bottom:3.5rem;
   }
   .ticker{
-    display:inline-block;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.35em;
+  display:inline-block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:0.35em;
+  animation:scroll 38s linear infinite;
+  }
+  .ticker-seq{
     color:var(--muted);
     opacity:0.55;
-    animation:scroll 38s linear infinite;
+  }
+  .ticker-emoji{
+    font-size:15px;
   }
   @keyframes scroll{
     from{transform:translateX(0);}
@@ -249,8 +254,10 @@
   <p class="lede" id="proj-lede"><span class="lede-empty">Loading project summary…</span></p>
 </div>
 
-<div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker" id="ticker"> 👾 ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC&nbsp;&nbsp;&nbsp;&nbsp;ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC 👾&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div class="ticker" id="ticker">
+  <span class="ticker-emoji">👾</span>
+  <span class="ticker-seq">ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC&nbsp;&nbsp;&nbsp;&nbsp;ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC</span>
+  <span class="ticker-emoji">👾</span>&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
 <div class="section">
