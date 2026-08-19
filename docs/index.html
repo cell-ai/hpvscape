@@ -335,7 +335,7 @@ function renderReadme(md){
   const rows = [];
   if(summarySection){
     const block = summarySection[1];
-    const fields = [['Question','Question'],['Approach','Approach'],['Why it matters','Why it matters']];
+    const fields = [['Question','Question'],['Approach','Approach'],['Abstract','Abstract'],['Why it matters','Why it matters']];
     fields.forEach(([label]) => {
       const re = new RegExp('\\*\\*' + label + ':?\\*\\*\\s*\\n?\\*?(.*?)(?=\\n\\*\\*|\\n##|$)','s');
       const m = block.match(re);
