@@ -325,7 +325,6 @@ async function fetchText(path){
 function renderReadme(md){
   // title
   const titleMatch = md.match(/^#\s+(.+)$/m);
-  if(titleMatch) titleMatch[1] = titleMatch[1].replace(/^[\p{Extended_Pictographic}\u200d\ufe0f\s]+/u, '');
   if(titleMatch) document.getElementById('proj-title').textContent = cleanLine(titleMatch[1]);
 
   // status pill
