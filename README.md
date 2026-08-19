@@ -1,4 +1,4 @@
-#   👾👩‍💻 Epithelial heterogeneity and DNA damage and repair pathway responses in cervical cancer associated with HPV activity at single-cell resolution 🔬
+# 👾👩‍💻 Epithelial heterogeneity and DNA damage and repair pathway responses in cervical cancer associated with HPV activity at single-cell resolution 🔬
 
 > *A living record of my postdoc project — code, data, notes, and everything in between.*
 
