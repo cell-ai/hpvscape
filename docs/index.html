@@ -351,7 +351,7 @@ function renderReadme(md){
         <p class="v">${r.v ? esc(r.v) : '<span class="lede-empty">not filled in yet</span>'}</p>
       </div>`).join('');
     const lede = rows.find(r=>r.k==='Question' && r.v);
-    document.getElementById('proj-lede').innerHTML = lede ? esc(lede.v) : '<span class="lede-empty">Add a project summary to README.md to see it here.</span>';
+    document.getElementById('proj-lede').innerHTML = lede ? esc(lede.v) : '<span class="lede-empty"></span>';
   } else {
     grid.innerHTML = '<p class="loading">No Project Summary section found in README.md yet.</p>';
     document.getElementById('proj-lede').innerHTML = '<span class="lede-empty">Fill in the Project Summary section of README.md.</span>';
