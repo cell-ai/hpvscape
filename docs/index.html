@@ -80,27 +80,34 @@
 
   /* ---- ticker (signature element) ---- */
   .ticker-wrap{
-    overflow:hidden;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:var(--ink-2);
-    white-space:nowrap;
-    padding:11px 0;
-    margin-bottom:3.5rem;
-  }
-  .ticker{
-  display:inline-block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  letter-spacing:0.35em;
-  animation:scroll 38s linear infinite;
-  }
-  .ticker-seq{
-    color:var(--muted);
-    opacity:0.55;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--ink-2);
+  padding:11px 20px;
+  margin-bottom:3.5rem;
   }
   .ticker-emoji{
-    font-size:15px;
+    font-size:18px;
+    flex-shrink:0;
+    opacity:1;
+  }
+  .ticker-scroll{
+    overflow:hidden;
+    flex:1;
+    white-space:nowrap;
+  }
+  .ticker{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.35em;
+    color:var(--muted);
+    opacity:0.55;
+    animation:scroll 38s linear infinite;
   }
   @keyframes scroll{
     from{transform:translateX(0);}
@@ -254,10 +261,12 @@
   <p class="lede" id="proj-lede"><span class="lede-empty">Loading project summary…</span></p>
 </div>
 
-<div class="ticker" id="ticker">
+<div class="ticker-wrap" aria-hidden="true">
   <span class="ticker-emoji">👾</span>
-  <span class="ticker-seq">ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC&nbsp;&nbsp;&nbsp;&nbsp;ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC</span>
-  <span class="ticker-emoji">👾</span>&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="ticker-scroll">
+    <div class="ticker" id="ticker">ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC&nbsp;&nbsp;&nbsp;&nbsp;ATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATCATCGGATCCAGTCGATCGGATTACAGCTAGCATCGATCGGGATCCAGCTAGATCGATCCGGATC</div>
+  </div>
+  <span class="ticker-emoji">👾</span>
 </div>
 
 <div class="section">
