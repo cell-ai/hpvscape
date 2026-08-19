@@ -1,4 +1,4 @@
-#   👾👩‍💻 Heterogeneidade epitelial e resposta de vias de dano e reparo ao DNA no câncer do colo do útero associadas à atividade do HPV em  resolução de célula única 🔬
+#   👾👩‍💻 Epithelial heterogeneity and DNA damage and repair pathway responses in cervical cancer associated with HPV activity at single-cell resolution 🔬
 
 > *A living record of my postdoc project — code, data, notes, and everything in between.*
 
