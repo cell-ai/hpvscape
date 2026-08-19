@@ -36,9 +36,10 @@ Human papillomavirus (HPV) is the primary etiological agent of cervical cancer. 
 
 ## 🚦 Current Status
 
-- [🟡] Milestone 1 — Publish bulk RNA-seq paper
-- [⚪] Milestone 2 — BEPE
-- [⚪] Milestone 3 — ISMB 2027
+- [💚] Milestone 1 — FAPESP fellowship
+- [🟡] Milestone 2 — Publish bulk RNA-seq paper
+- [⚪] Milestone 3 — BEPE
+- [⚪] Milestone 4 — ISMB 2027
 
 See [`LOG.md`](./LOG.md) for the day-to-day story.
 
