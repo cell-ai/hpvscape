@@ -56,31 +56,15 @@
   </div>
 </div>
 
-async function renderBrowseCards(){
-  const folders = [
-    {path:'notes', label:'Notes', icon:'📝'},
-    {path:'analysis', label:'Analysis', icon:'🧪'},
-    {path:'results', label:'Results', icon:'📈'},
-    {path:'data', label:'Data', icon:'📊'},
-  ];
-  const grid = document.getElementById('browse-grid');
-  grid.innerHTML = folders.map(f => `
-    <a class="browse-card" href="${f.path}.html">
-      <span class="bc-icon">${f.icon}</span>
-      <p class="bc-name">${esc(f.label)}</p>
-      <p class="bc-count" id="count-${f.path}">loading…</p>
-    </a>`).join('');
-
-  for(const f of folders){
-    try{
-      const files = await fetchFolder(f.path);
-      document.getElementById(`count-${f.path}`).textContent = files.length + (files.length === 1 ? ' item' : ' items');
-    } catch(e){
-      document.getElementById(`count-${f.path}`).textContent = 'unavailable';
-    }
-  }
-}
-
+<div class="section">
+  <div class="section-head">
+    <h2 class="section-title">Browse 🔎</h2>
+    <a class="section-count" href="#" id="full-repo-link" target="_blank" rel="noopener">full repo ↗</a>
+  </div>
+  <div class="browse-grid" id="browse-grid">
+    <p class="loading">Loading folders…</p>
+  </div>
+</div>
 
 <footer id="footer">hpvscape · updated automatically from README.md and LOG.md</footer>
 
@@ -180,6 +164,30 @@ function renderLog(md){
   }).join('');
 }
 
+async function renderBrowseCards(){
+  const folders = [
+    {path:'notes', label:'Notes', icon:'📝'},
+    {path:'analysis', label:'Analysis', icon:'🧪'},
+    {path:'results', label:'Results', icon:'📈'},
+    {path:'data', label:'Data', icon:'📊'},
+  ];
+  const grid = document.getElementById('browse-grid');
+  grid.innerHTML = folders.map(f => `
+    <a class="browse-card" href="${f.path}.html">
+      <span class="bc-icon">${f.icon}</span>
+      <p class="bc-name">${esc(f.label)}</p>
+      <p class="bc-count" id="count-${f.path}">loading…</p>
+    </a>`).join('');
+
+  for(const f of folders){
+    try{
+      const files = await fetchFolder(f.path);
+      document.getElementById(`count-${f.path}`).textContent = files.length + (files.length === 1 ? ' item' : ' items');
+    } catch(e){
+      document.getElementById(`count-${f.path}`).textContent = 'unavailable';
+    }
+  }
+}
 
 async function init(){
   try {
