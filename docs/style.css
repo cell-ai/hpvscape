@@ -37,9 +37,10 @@ a{color:var(--strand);}
 h1.title{
   font-family:'Fraunces',serif;
   font-weight:600;
-  font-size:1.4rem;
-  line-height:1.25;
-  margin:0 0 0.6rem;
+  font-size:clamp(2rem,5.5vw,3.4rem);
+  line-height:1.5;
+  margin:0 0 1.3rem;
+  letter-spacing:0.01em;
 }
 .status-pill{
   display:inline-flex;
@@ -101,13 +102,25 @@ h1.subtitle{
 
 /* ---- ticker (signature element) ---- */
 .ticker-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
   overflow:hidden;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
   background:var(--ink-2);
-  white-space:nowrap;
-  padding:11px 0;
+  padding:11px 20px;
   margin-bottom:3.5rem;
+}
+.ticker-emoji{
+  font-size:18px;
+  flex-shrink:0;
+  opacity:1;
+}
+.ticker-scroll{
+  overflow:hidden;
+  flex:1;
+  white-space:nowrap;
 }
 .ticker{
   display:inline-block;
