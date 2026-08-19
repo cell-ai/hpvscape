@@ -15,7 +15,6 @@
   <p class="eyebrow">Postdoc project · live log</p>
   <h1 class="title" id="proj-title">hpvscape</h1>
   <div class="status-pill"><span class="status-dot"></span><span id="status-text">loading status…</span></div>
-  <p class="lede" id="proj-lede"><span class="lede-empty">Loading project summary…</span></p>
 </div>
 
 <div class="ticker-wrap" aria-hidden="true">
@@ -107,9 +106,6 @@ function renderReadme(md){
         <p class="v">${r.v ? esc(r.v) : '<span class="lede-empty">not filled in yet</span>'}</p>
       </div>`).join('');
     // show the first couple sentences of the Abstract as the hero tagline
-    const abstract = rows.find(r=>r.k==='Abstract' && r.v);
-    const shortLede = abstract ? abstract.v.split(/(?<=[.!?])\s/).slice(0,2).join(' ') : '';
-    document.getElementById('proj-lede').innerHTML = shortLede ? esc(shortLede) : '<span class="lede-empty"></span>';
   } else {
     grid.innerHTML = '<p class="loading">No Project Summary section found in README.md yet.</p>';
     document.getElementById('proj-lede').innerHTML = '<span class="lede-empty">Fill in the Project Summary section of README.md.</span>';
@@ -167,6 +163,7 @@ function renderLog(md){
 async function renderBrowseCards(){
   const folders = [
     {path:'notes', label:'Notes', icon:'📝'},
+    {path:'resources', label:'Resources', icon:'🎟️'},
     {path:'analysis', label:'Analysis', icon:'🧪'},
     {path:'results', label:'Results', icon:'📈'},
     {path:'data', label:'Data', icon:'📊'},
