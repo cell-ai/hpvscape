@@ -8,7 +8,7 @@
 
 A one-stop home for the project: what I'm doing, why, what I've found so far, and where everything lives. Built so my supervisor (and future-me) can drop in anytime and know exactly what's going on.
 
-**Status:** 🟡 In progress
+**Status:** 🟨 In progress
 **Started:** August 2026
 **PI / Supervisor:** Helder Nakaya
 
