@@ -123,10 +123,10 @@ function renderReadme(md){
       } else if(mark === '🟡' || mark.toLowerCase() === 'progress'){
         stateClass = 'progress';
         icon = '🟡';
-      } else if(mark === '💚' || mark.toLowerCase() === 'completed'){
-        stateClass = 'completed';
-        icon = '💚';
-      return `<div class="milestone">
+          } else if(mark === '💚' || mark.toLowerCase() === 'completed'){
+      stateClass = 'completed';
+      icon = '💚';
+    return `<div class="milestone">   // ← missing } before this line
         <div class="m-box ${stateClass}">${icon}</div>
         <div class="m-text ${stateClass === 'done' ? 'done' : ''}">${esc(text) || '<span class="lede-empty">untitled milestone</span>'}</div>
       </div>`;
