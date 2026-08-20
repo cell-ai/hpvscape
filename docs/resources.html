@@ -7,37 +7,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
- 
+
 <div class="subhero">
   <a class="breadcrumb" href="index.html">← hpvscape</a>
   <h1 class="subtitle" id="folder-title">resources</h1>
   <p class="sub-desc" id="sub-desc-text">Loading…</p>
 </div>
- 
+
 <div class="section">
   <div id="tables-wrap"><p class="loading">Fetching resources/README.md…</p></div>
 </div>
- 
+
 <footer>hpvscape · updated automatically from the repo</footer>
- 
-<script src="config.js"></script>
+
+<script src="config.js?v=2"></script>
 <script>
 async function init(){
   try{
     const md = await fetchText('resources/README.md');
- 
+
     // title (falls back to "resources" if none found)
     const titleMatch = md.match(/^#\s+(.+)$/m);
     if(titleMatch) document.getElementById('folder-title').textContent = cleanLine(titleMatch[1]);
- 
+
     // description: first non-empty, non-table, non-heading line after the title
     const afterTitle = md.replace(/^#.*\n/, '');
     const descLine = afterTitle.split('\n').find(l => l.trim().length > 0 && !l.trim().startsWith('|') && !l.trim().startsWith('#'));
     document.getElementById('sub-desc-text').textContent = descLine ? cleanLine(descLine) : '';
- 
+
     // render every markdown table found
     const tables = parseMarkdownTables(md);
     const wrap = document.getElementById('tables-wrap');
