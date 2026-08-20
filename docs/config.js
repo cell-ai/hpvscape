@@ -37,3 +37,42 @@ async function fetchFolder(path){
   if(!Array.isArray(data)) throw new Error('not a folder');
   return data.filter(f => f.name !== '.gitkeep' && f.name !== 'README.md');
 }
+
+async function fetchText(path){
+  const res = await fetch(RAW + path, {cache:"no-store"});
+  if(!res.ok) throw new Error(path + " not found (" + res.status + ")");
+  return res.text();
+}
+
+// converts **bold**, *italic*, and [text](url) markdown links inside a single cell/line to safe HTML
+function mdInline(s){
+  let out = esc(s);
+  out = out.replace(/\[(.+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  out = out.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  out = out.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  return out;
+}
+
+// parses all pipe-style markdown tables in a markdown string into {headers, rows}
+function parseMarkdownTables(md){
+  const lines = md.split('\n');
+  const tables = [];
+  let i = 0;
+  while(i < lines.length){
+    if(lines[i].trim().startsWith('|') && lines[i+1] && /^\|?[\s:|-]+\|?$/.test(lines[i+1].trim())){
+      const splitRow = (line) => line.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(c => c.trim());
+      const headers = splitRow(lines[i]);
+      let j = i + 2;
+      const rows = [];
+      while(j < lines.length && lines[j].trim().startsWith('|')){
+        rows.push(splitRow(lines[j]));
+        j++;
+      }
+      tables.push({headers, rows});
+      i = j;
+    } else {
+      i++;
+    }
+  }
+  return tables;
+}
