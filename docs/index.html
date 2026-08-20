@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -67,7 +67,7 @@
 
 <footer id="footer">hpvscape · updated automatically from README.md and LOG.md</footer>
 
-<script src="config.js"></script>
+<script src="config.js?v=2"></script>
 <script>
 
 async function fetchText(path){
@@ -126,7 +126,6 @@ function renderReadme(md){
       } else if(mark === '💚' || mark.toLowerCase() === 'completed'){
         stateClass = 'completed';
         icon = '💚';
-      }
       return `<div class="milestone">
         <div class="m-box ${stateClass}">${icon}</div>
         <div class="m-text ${stateClass === 'done' ? 'done' : ''}">${esc(text) || '<span class="lede-empty">untitled milestone</span>'}</div>
@@ -172,10 +171,10 @@ function renderLog(md){
 async function renderBrowseCards(){
   const folders = [
     {path:'notes', label:'Notes', icon:'📝'},
-    {path:'resources', label:'Resources', icon:'🎟️'},
     {path:'analysis', label:'Analysis', icon:'🧪'},
     {path:'results', label:'Results', icon:'📈'},
     {path:'data', label:'Data', icon:'📊'},
+    {path:'resources', label:'Resources', icon:'🎟️'},
   ];
   const grid = document.getElementById('browse-grid');
   grid.innerHTML = folders.map(f => `
